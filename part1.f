@@ -11,6 +11,7 @@ c volume
       real area
       real maxvol
       integer i
+      integer j
       real scalar
       parameter (pi = 3.14159)
       integer maxIndex
@@ -51,6 +52,11 @@ c Print the table
       write(*,'(F15.2)')radii(maxIndex)
       write(*,*)'and a height of:'
       write(*,'(F15.3)')heights(maxIndex)
+
+c Part 2: Call function 10 times
+      do 20 j = 1, 10
+         call part2(i)
+   20 continue
       stop
       end
 
