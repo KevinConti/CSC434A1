@@ -23,19 +23,18 @@ c volume
 c Assign default values
       maxvol = 0.0
       scalar = 0.1
-      
+c create the beginning of the table     
       write(*,*)'radius   height   area   volume'
       write(*,*)'----------------------------------------'
+c for loop which calculates the appropriate values and determines the max volume
       do 10 i = 1, 100 
           radii(i) = scalar 
+c 'scalar' is used to assign radius values to the 'radii' array
           scalar = scalar + 0.1
-c          write(*, '(F3.1)') radii(i)
 c area calculation: h = A/2*pi*r - r
           heights(i) = area/(2*pi*radii(i)) - radii(i)
-c this line should print the proper heights          write(*, '(F15.3)') heights(i)
 c volume calculation: V = pi*r^2*h
           vol(i) = pi*radii(i)**2*heights(i) 
-c this line should print the proper volumes          write(*, '(F10.3)') vol(i)
           if (vol(i) .GT. maxvol) then
               maxvol = vol(i)
               maxIndex = i
